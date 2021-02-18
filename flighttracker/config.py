@@ -9,7 +9,7 @@ class Config:
         path = os.path.join(os.path.abspath(__file__ + "/../../"), "config/config.yaml")
 
         with open(path, "r") as config:
-            parsed_yaml_file = yaml.load(config, Loader=yaml.FullLoader)
+            parsed_yaml_file = yaml.load(config, Loader=yaml.SafeLoader)
 
             self.db_name = parsed_yaml_file["db"]["name"]
             self.db_user = parsed_yaml_file["db"]["user"]
